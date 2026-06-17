@@ -45,7 +45,7 @@
           />
           <div class="absolute -bottom-4 -start-4 bg-gold-500 text-white rounded-2xl p-6 shadow-lg w-40">
             <p class="text-4xl font-bold">5+</p>
-            <p class="text-sm text-white/80 mt-1">{{ isAr ? 'سنة خبرة' : 'Years Experience' }}</p>
+            <p class="text-sm text-white/80 mt-1">{{ isAr ? 'سنوات من الخبرة' : 'Years Experience' }}</p>
           </div>
         </div>
       </div>
