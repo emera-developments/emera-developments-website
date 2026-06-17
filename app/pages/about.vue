@@ -27,7 +27,7 @@
           <div class="space-y-4 text-gray-600 leading-relaxed">
             <p>
               {{ isAr
-                ? 'بدأت إيميرا للتطوير العقاري في عام 2009 برؤية واضحة: بناء مجتمعات لا مجرد مبانٍ. على مدار 5 أعوام، نفّذنا أكثر من 5 مشاريع ضخمه وسلّمنا أكثر من 80 وحدة سكنية وتجارية في أرقى مناطق مصر.'
+                ? 'بدأت إيميرا للتطوير العقاري في عام 2021 برؤية واضحة: بناء مجتمعات لا مجرد مبانٍ. على مدار 5 أعوام، نفّذنا أكثر من 5 مشاريع ضخمه وسلّمنا أكثر من 80 وحدة سكنية وتجارية في أرقى مناطق مصر.'
                 : 'Emera Developments began in 2021 with a clear vision: to build communities, not just buildings. Over 5 years, we have delivered more than 5 landmark projects and over 80 residential and commercial units across Egypt\'s most prestigious locations.' }}
             </p>
             <p>
