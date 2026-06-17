@@ -10,9 +10,10 @@
           <NuxtLink
             :to="item.to"
             class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-150"
-            active-class="!text-white !bg-gray-700 font-medium"
+            :exact-active-class="item.exact ? '!text-white !bg-gray-700 font-medium' : ''"
+            :active-class="!item.exact ? '!text-white !bg-gray-700 font-medium' : ''"
           >
-            <span class="text-base">{{ item.icon }}</span>
+            <component :is="item.icon" class="w-4 h-4 shrink-0" />
             {{ item.label }}
           </NuxtLink>
         </li>
@@ -23,17 +24,36 @@
         class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-gray-800 transition-colors duration-150"
         @click="logout"
       >
-        <span class="text-base">🚪</span> Logout
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+        Logout
       </button>
     </div>
   </aside>
 </template>
 
 <script setup lang="ts">
+const IconDashboard = defineComponent({
+  render: () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [
+    h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' }),
+  ]),
+})
+const IconProjects = defineComponent({
+  render: () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [
+    h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' }),
+  ]),
+})
+const IconInquiries = defineComponent({
+  render: () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [
+    h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' }),
+  ]),
+})
+
 const navItems = [
-  { to: '/admin/dashboard', label: 'Dashboard', icon: '📊' },
-  { to: '/admin/projects', label: 'Projects', icon: '🏗️' },
-  { to: '/admin/inquiries', label: 'Inquiries', icon: '📩' },
+  { to: '/admin/dashboard', label: 'Dashboard', icon: IconDashboard, exact: true },
+  { to: '/admin/projects', label: 'Projects', icon: IconProjects, exact: false },
+  { to: '/admin/inquiries', label: 'Inquiries', icon: IconInquiries, exact: false },
 ]
 
 async function logout() {

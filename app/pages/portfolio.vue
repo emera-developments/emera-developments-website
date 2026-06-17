@@ -18,7 +18,7 @@
             :key="f.value"
             class="shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-all duration-150"
             :class="activeFilter === f.value
-              ? 'bg-brand-600 text-white shadow-sm'
+              ? 'bg-gold-500 text-white shadow-sm'
               : 'text-gray-600 hover:bg-gray-100'"
             @click="activeFilter = f.value"
           >

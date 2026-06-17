@@ -13,8 +13,8 @@
             v-model="email"
             type="email"
             required
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-            placeholder="admin@emera-dev.com"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent"
+            placeholder="emera.developments@gmail.com"
           />
         </div>
         <div>
@@ -23,7 +23,7 @@
             v-model="password"
             type="password"
             required
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent"
             placeholder="••••••••"
           />
         </div>
@@ -33,7 +33,7 @@
         <button
           type="submit"
           :disabled="loading"
-          class="w-full py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors duration-200 disabled:opacity-50"
+          class="w-full py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50"
         >
           {{ loading ? 'Signing in…' : 'Sign In' }}
         </button>

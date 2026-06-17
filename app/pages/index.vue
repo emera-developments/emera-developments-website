@@ -3,10 +3,10 @@
     <!-- ─── HERO ─────────────────────────────────────────────────── -->
     <section ref="heroSection" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950">
       <!-- Background gradient with parallax -->
-      <div ref="heroBg" class="absolute inset-0 bg-gradient-to-br from-brand-950 via-gray-900 to-gray-950" />
+      <div ref="heroBg" class="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950" />
 
       <!-- Decorative circles -->
-      <div class="absolute top-1/4 start-1/4 w-96 h-96 rounded-full bg-brand-600/10 blur-3xl pointer-events-none" />
+      <div class="absolute top-1/4 start-1/4 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl pointer-events-none" />
       <div class="absolute bottom-1/4 end-1/4 w-72 h-72 rounded-full bg-gold-500/10 blur-3xl pointer-events-none" />
 
       <div ref="heroContent" class="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -59,7 +59,7 @@
     <section class="py-20 lg:py-28 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref="featuredHeader" class="text-center mb-12">
-          <p class="text-brand-600 text-sm font-semibold tracking-widest uppercase mb-2">{{ t('portfolio.title') }}</p>
+          <p class="text-gold-500 text-sm font-semibold tracking-widest uppercase mb-2">{{ t('portfolio.title') }}</p>
           <h2 class="section-title">{{ t('hero.cta_portfolio') }}</h2>
           <p class="section-subtitle mx-auto mt-3">{{ t('portfolio.subtitle') }}</p>
         </div>
@@ -96,7 +96,7 @@
             :key="item.icon"
             class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5 text-2xl">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-2xl">
               {{ item.icon }}
             </div>
             <h3 class="font-display font-semibold text-lg text-gray-900 mb-2">{{ item.title }}</h3>
@@ -107,12 +107,12 @@
     </section>
 
     <!-- ─── CTA BANNER ─────────────────────────────────────────────── -->
-    <section ref="ctaBanner" class="bg-brand-900 py-16 lg:py-20">
+    <section ref="ctaBanner" class="bg-gray-950 py-16 lg:py-20">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
           {{ isAr ? 'هل أنت مستعد للعثور على منزل أحلامك؟' : 'Ready to Find Your Dream Property?' }}
         </h2>
-        <p class="text-brand-200 text-lg mb-8">
+        <p class="text-gray-300 text-lg mb-8">
           {{ isAr ? 'تواصل مع فريقنا اليوم ودعنا نرشدك.' : 'Get in touch with our team today and let us guide you.' }}
         </p>
         <NuxtLink :to="localePath('/contact')" class="inline-block px-8 py-4 bg-gold-500 text-white font-semibold rounded-full hover:bg-gold-600 transition-colors duration-200">
@@ -209,5 +209,13 @@ onMounted(async () => {
 
 onUnmounted(killScrollTriggers)
 
-useHead({ title: 'Emera Developments — Premium Real Estate Egypt' })
+useSeoMeta({
+  title: 'Emera Developments — Premium Real Estate in Egypt',
+  description: 'Emera Developments builds premium residential and commercial properties across Egypt. Explore our portfolio of luxury projects in Tanta, Cairo and beyond.',
+  ogTitle: 'Emera Developments — Premium Real Estate in Egypt',
+  ogDescription: 'Luxury residential and commercial developments across Egypt. Quality, integrity, and innovation.',
+  ogImage: '/logo.png',
+  ogType: 'website',
+  twitterCard: 'summary',
+})
 </script>

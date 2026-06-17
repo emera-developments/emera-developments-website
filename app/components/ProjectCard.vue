@@ -22,7 +22,7 @@
 
     <!-- Content -->
     <div class="p-5">
-      <h3 class="font-display font-semibold text-lg text-gray-900 group-hover:text-brand-600 transition-colors duration-200 line-clamp-1">
+      <h3 class="font-display font-semibold text-lg text-gray-900 group-hover:text-gold-500 transition-colors duration-200 line-clamp-1">
         {{ displayTitle }}
       </h3>
       <p class="flex items-center gap-1.5 text-sm text-gray-500 mt-1.5">

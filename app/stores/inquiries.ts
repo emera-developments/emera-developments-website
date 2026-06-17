@@ -18,8 +18,7 @@ export const useInquiriesStore = defineStore('inquiries', () => {
     submitted.value = false
     error.value = null
     try {
-      // Phase 3: replace with $fetch('/api/inquiries/create', { method: 'POST', body: payload })
-      await new Promise(r => setTimeout(r, 600))
+      await $fetch('/api/inquiries', { method: 'POST', body: payload })
       submitted.value = true
     } catch (e: unknown) {
       error.value = e instanceof Error ? e.message : 'Failed to submit inquiry'

@@ -86,7 +86,7 @@
       <button
         type="submit"
         :disabled="store.submitting"
-        class="w-full py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        class="w-full py-3.5 bg-gold-500 text-white font-semibold rounded-xl hover:bg-gold-600 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         <svg v-if="store.submitting" class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
@@ -147,7 +147,7 @@ onMounted(() => {
 <style scoped>
 .field {
   @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400
-         focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+         focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent
          bg-gray-50 transition-colors duration-150;
 }
 .field-error {

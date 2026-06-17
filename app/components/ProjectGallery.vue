@@ -40,7 +40,7 @@
         v-for="(img, i) in images"
         :key="i"
         class="shrink-0 w-20 h-16 rounded-xl overflow-hidden border-2 transition-colors duration-150"
-        :class="i === activeIndex ? 'border-brand-600' : 'border-transparent hover:border-gray-300'"
+        :class="i === activeIndex ? 'border-gold-500' : 'border-transparent hover:border-gray-300'"
         @click="activeIndex = i"
       >
         <img :src="img" :alt="`Thumbnail ${i + 1}`" class="w-full h-full object-cover" loading="lazy" />

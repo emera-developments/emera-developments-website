@@ -43,9 +43,9 @@
             alt="Emera Developments"
             class="rounded-2xl w-full shadow-xl"
           />
-          <div class="absolute -bottom-4 -start-4 bg-brand-600 text-white rounded-2xl p-6 shadow-lg w-40">
+          <div class="absolute -bottom-4 -start-4 bg-gold-500 text-white rounded-2xl p-6 shadow-lg w-40">
             <p class="text-4xl font-bold">5+</p>
-            <p class="text-sm text-brand-200 mt-1">{{ isAr ? 'سنة خبرة' : 'Years Experience' }}</p>
+            <p class="text-sm text-white/80 mt-1">{{ isAr ? 'سنة خبرة' : 'Years Experience' }}</p>
           </div>
         </div>
       </div>
@@ -72,12 +72,12 @@
     </section>
 
     <!-- CTA -->
-    <section class="bg-brand-900 py-16">
+    <section class="bg-gray-950 py-16">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="font-display text-3xl font-bold text-white mb-4">
           {{ isAr ? 'تعاون معنا' : 'Partner With Us' }}
         </h2>
-        <p class="text-brand-200 mb-8">
+        <p class="text-gray-300 mb-8">
           {{ isAr ? 'سواء كنت مستثمراً أو مشترياً — نحن هنا لنساعدك.' : 'Whether you\'re an investor or a buyer — we\'re here to help.' }}
         </p>
         <NuxtLink :to="localePath('/contact')" class="inline-block px-8 py-4 bg-gold-500 text-white font-semibold rounded-full hover:bg-gold-600 transition-colors duration-200">

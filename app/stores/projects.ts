@@ -215,9 +215,7 @@ export const useProjectsStore = defineStore('projects', () => {
     loading.value = true
     error.value = null
     try {
-      // Phase 3: replace with $fetch('/api/projects')
-      await new Promise(r => setTimeout(r, 300))
-      projects.value = MOCK_PROJECTS
+      projects.value = await $fetch<Project[]>('/api/projects')
     } catch (e: unknown) {
       error.value = e instanceof Error ? e.message : 'Failed to load projects'
     } finally {

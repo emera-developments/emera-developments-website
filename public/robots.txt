@@ -1,2 +1,3 @@
 User-Agent: *
-Disallow:
+Disallow: /admin/
+Sitemap: https://emera-developments.com/sitemap.xml
