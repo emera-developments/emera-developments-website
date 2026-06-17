@@ -149,8 +149,9 @@ definePageMeta({ layout: 'admin' })
 const route = useRoute()
 const id = String(route.params.id)
 
-const { data: project, pending } = await useAsyncData(`project-edit-${id}`,
+const { data: project, pending } = useAsyncData(`project-edit-${id}`,
   () => $fetch<any>(`/api/projects/${id}`),
+  { server: false },
 )
 
 const loading = ref(false)

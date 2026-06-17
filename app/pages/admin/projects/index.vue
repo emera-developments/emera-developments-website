@@ -122,8 +122,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'admin' })
 
-const { data: projects, pending, refresh } = await useAsyncData('admin-projects',
+const { data: projects, pending, refresh } = useAsyncData('admin-projects',
   () => $fetch<any[]>('/api/projects'),
+  { server: false },
 )
 
 const deleting = ref<{ id: string; title: string } | null>(null)

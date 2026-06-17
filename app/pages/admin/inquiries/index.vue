@@ -108,8 +108,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'admin' })
 
-const { data: inquiries, pending, refresh } = await useAsyncData('admin-inquiries',
+const { data: inquiries, pending, refresh } = useAsyncData('admin-inquiries',
   () => $fetch<any[]>('/api/admin/inquiries'),
+  { server: false },
 )
 
 const unreadCount = computed(() => inquiries.value?.filter(i => !i.read).length ?? 0)

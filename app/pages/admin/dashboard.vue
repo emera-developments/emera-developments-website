@@ -52,8 +52,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'admin' })
 
-const { data, pending } = await useAsyncData('admin-stats',
+const { data, pending } = useAsyncData('admin-stats',
   () => $fetch<{ totalProjects: number; availableProjects: number; unreadInquiries: number }>('/api/admin/stats'),
+  { server: false },
 )
 
 const stats = computed(() => [
