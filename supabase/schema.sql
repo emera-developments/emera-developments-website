@@ -16,7 +16,8 @@ create table if not exists projects (
   status       text not null default 'available'
                  check (status in ('available', 'sold', 'coming_soon')),
   images       jsonb default '[]'::jsonb,     -- array of image URLs
-  specifications jsonb default '{}'::jsonb,
+  specifications    jsonb default '{}'::jsonb,
+  specifications_ar jsonb default '{}'::jsonb,
   created_at   timestamptz default now(),
   updated_at   timestamptz default now()
 );
