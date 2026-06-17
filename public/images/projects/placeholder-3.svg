@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="sky3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:0.9"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#0369a1;stop-opacity:0.8"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="800" height="600" fill="url(#sky3)"/>
+  <!-- Sun reflection -->
+  <ellipse cx="400" cy="0" rx="200" ry="80" fill="#f0c060" opacity="0.15"/>
+  <!-- Water -->
+  <rect x="0" y="420" width="800" height="180" fill="url(#water)"/>
+  <!-- Water ripples -->
+  <ellipse cx="400" cy="440" rx="200" ry="8" fill="white" opacity="0.1"/>
+  <ellipse cx="400" cy="460" rx="160" ry="6" fill="white" opacity="0.08"/>
+  <ellipse cx="400" cy="480" rx="120" ry="5" fill="white" opacity="0.06"/>
+  <!-- Modern compound building -->
+  <!-- Main block -->
+  <rect x="100" y="200" width="600" height="220" fill="#f8fafc"/>
+  <!-- Horizontal bands -->
+  <rect x="100" y="260" width="600" height="4" fill="#e2e8f0"/>
+  <rect x="100" y="320" width="600" height="4" fill="#e2e8f0"/>
+  <rect x="100" y="380" width="600" height="4" fill="#e2e8f0"/>
+  <!-- Glass facade -->
+  <rect x="120" y="210" width="560" height="205" fill="#bfdbfe" opacity="0.4"/>
+  <!-- Vertical dividers -->
+  <g stroke="#dbeafe" stroke-width="1" opacity="0.8">
+    <line x1="200" y1="210" x2="200" y2="415"/>
+    <line x1="280" y1="210" x2="280" y2="415"/>
+    <line x1="360" y1="210" x2="360" y2="415"/>
+    <line x1="440" y1="210" x2="440" y2="415"/>
+    <line x1="520" y1="210" x2="520" y2="415"/>
+    <line x1="600" y1="210" x2="600" y2="415"/>
+  </g>
+  <!-- Balconies -->
+  <g fill="#94a3b8" opacity="0.6">
+    <rect x="120" y="254" width="75" height="8"/>
+    <rect x="200" y="254" width="75" height="8"/>
+    <rect x="280" y="254" width="75" height="8"/>
+    <rect x="360" y="254" width="75" height="8"/>
+    <rect x="440" y="254" width="75" height="8"/>
+    <rect x="520" y="254" width="75" height="8"/>
+    <rect x="600" y="254" width="75" height="8"/>
+    <rect x="120" y="314" width="75" height="8"/>
+    <rect x="200" y="314" width="75" height="8"/>
+    <rect x="280" y="314" width="75" height="8"/>
+    <rect x="360" y="314" width="75" height="8"/>
+    <rect x="440" y="314" width="75" height="8"/>
+    <rect x="520" y="314" width="75" height="8"/>
+    <rect x="600" y="314" width="75" height="8"/>
+  </g>
+  <!-- Rooftop -->
+  <rect x="100" y="190" width="600" height="12" fill="#1e293b"/>
+  <!-- Pool reflection in water -->
+  <ellipse cx="400" cy="460" rx="300" ry="15" fill="#bfdbfe" opacity="0.3"/>
+  <!-- Walkway -->
+  <rect x="200" y="415" width="400" height="10" fill="#f1f5f9"/>
+  <!-- Label -->
+  <text x="400" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.8">EMERA DEVELOPMENTS</text>
+</svg>

@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "inquire": "Inquire Now"
+  },
+  "hero": {
+    "badge": "Premium Real Estate",
+    "title": "Building Dreams",
+    "titleAccent": "Into Reality",
+    "subtitle": "Emera Developments crafts exceptional residential and commercial spaces that stand the test of time.",
+    "cta_portfolio": "View Portfolio",
+    "cta_contact": "Get in Touch"
+  },
+  "footer": {
+    "tagline": "Building premium residential and commercial developments across Egypt.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "built": "Built with precision."
+  },
+  "splash": {
+    "tagline": "Building the Future"
+  },
+  "contact": {
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
+    "project": "Select Project",
+    "submit": "Send Inquiry",
+    "success": "Your inquiry has been sent successfully.",
+    "title": "Get in Touch",
+    "subtitle": "Reach out about any of our projects or partnership opportunities."
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Explore our completed and available developments.",
+    "filter_all": "All",
+    "filter_available": "Available",
+    "filter_sold": "Sold",
+    "filter_coming": "Coming Soon"
+  },
+  "project": {
+    "status_available": "Available",
+    "status_sold": "Sold",
+    "status_coming_soon": "Coming Soon",
+    "location": "Location",
+    "price": "Price",
+    "specifications": "Specifications",
+    "gallery": "Gallery",
+    "related": "Related Projects",
+    "inquire": "Inquire About This Project"
+  }
+}
