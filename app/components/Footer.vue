@@ -103,13 +103,23 @@
         <p>&copy; {{ new Date().getFullYear() }} Emera Developments. {{ t('footer.rights') }}</p>
         <p>{{ t('footer.built') }}</p>
       </div>
+      <div class="mt-3 text-center text-xs text-gray-600">
+        {{ isAr ? 'بدعم من' : 'Powered by' }}
+        <a
+          href="https://shaf3y.is-a.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-gold-400 transition-colors duration-150"
+        >shaf3y.is-a.dev</a>
+      </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const isAr = computed(() => locale.value === 'ar')
 
 const footerLinks = [
   { to: '/', key: 'nav.home' },
