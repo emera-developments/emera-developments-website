@@ -21,4 +21,10 @@ const currentLocale = computed(() =>
 )
 const dir = computed(() => currentLocale.value?.dir ?? 'ltr')
 const isRtl = computed(() => dir.value === 'rtl')
+
+useHead(computed(() => ({
+  htmlAttrs: { lang: locale.value, dir: dir.value },
+})))
+
+useSeoMeta({ ogSiteName: 'Emera Developments' })
 </script>

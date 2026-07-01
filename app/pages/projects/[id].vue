@@ -192,5 +192,58 @@ onMounted(async () => {
 
 onUnmounted(killScrollTriggers)
 
-useHead({ title: `${displayTitle.value} — Emera Developments` })
+const { public: { siteUrl } } = useRuntimeConfig()
+const id = String(route.params.id)
+
+const projectOgImage = computed(() => project.value?.images?.[0] || `${siteUrl}/logo.png`)
+const projectDesc = computed(() => {
+  const raw = displayDescription.value || ''
+  return raw.length > 160 ? raw.slice(0, 157) + '…' : raw
+})
+const projectUrl = computed(() => `${siteUrl}/projects/${id}`)
+
+useSeoMeta(computed(() => ({
+  title: `${displayTitle.value} — Emera Developments`,
+  description: projectDesc.value,
+  ogTitle: `${displayTitle.value} — Emera Developments`,
+  ogDescription: projectDesc.value,
+  ogImage: projectOgImage.value,
+  ogUrl: projectUrl.value,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterTitle: `${displayTitle.value} — Emera Developments`,
+  twitterDescription: projectDesc.value,
+  twitterImage: projectOgImage.value,
+})))
+
+useHead(computed(() => ({
+  link: [
+    { rel: 'canonical', href: projectUrl.value },
+    { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/projects/${id}` },
+    { rel: 'alternate', hreflang: 'ar', href: `${siteUrl}/ar/projects/${id}` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/projects/${id}` },
+  ],
+  script: project.value ? [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: project.value.title,
+      description: project.value.description || '',
+      image: project.value.images || [],
+      url: projectUrl.value,
+      brand: { '@type': 'Brand', name: 'Emera Developments' },
+      offers: {
+        '@type': 'Offer',
+        availability: project.value.status === 'available'
+          ? 'https://schema.org/InStock'
+          : project.value.status === 'coming_soon'
+            ? 'https://schema.org/PreOrder'
+            : 'https://schema.org/SoldOut',
+        priceCurrency: 'EGP',
+        seller: { '@type': 'Organization', name: 'Emera Developments' },
+      },
+    }),
+  }] : [],
+})))
 </script>

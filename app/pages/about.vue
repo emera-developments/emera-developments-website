@@ -121,5 +121,23 @@ onMounted(async () => {
 
 onUnmounted(killScrollTriggers)
 
-useHead({ title: `${isAr.value ? 'عن الشركة' : 'About Us'} — Emera Developments` })
+const { public: { siteUrl } } = useRuntimeConfig()
+const aboutUrl = computed(() => `${siteUrl}${isAr.value ? '/ar' : ''}/about`)
+const aboutTitle = computed(() => `${isAr.value ? 'عن الشركة' : 'About Us'} — Emera Developments`)
+
+useSeoMeta(computed(() => ({
+  title: aboutTitle.value,
+  description: t('seo.aboutDescription'),
+  ogTitle: aboutTitle.value,
+  ogDescription: t('seo.aboutDescription'),
+  ogImage: `${siteUrl}/logo.png`,
+  ogUrl: aboutUrl.value,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterTitle: aboutTitle.value,
+  twitterDescription: t('seo.aboutDescription'),
+  twitterImage: `${siteUrl}/logo.png`,
+})))
+
+useHead(computed(() => ({ link: [{ rel: 'canonical', href: aboutUrl.value }] })))
 </script>

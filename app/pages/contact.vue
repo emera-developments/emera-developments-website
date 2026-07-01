@@ -157,5 +157,52 @@ onMounted(async () => {
 
 onUnmounted(killScrollTriggers)
 
-useHead({ title: `${t('contact.title')} — Emera Developments` })
+const { public: { siteUrl } } = useRuntimeConfig()
+const contactUrl = computed(() => `${siteUrl}${isAr.value ? '/ar' : ''}/contact`)
+
+useSeoMeta(computed(() => ({
+  title: `${t('contact.title')} — Emera Developments`,
+  description: t('seo.contactDescription'),
+  ogTitle: `${t('contact.title')} — Emera Developments`,
+  ogDescription: t('seo.contactDescription'),
+  ogImage: `${siteUrl}/logo.png`,
+  ogUrl: contactUrl.value,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterTitle: `${t('contact.title')} — Emera Developments`,
+  twitterDescription: t('seo.contactDescription'),
+  twitterImage: `${siteUrl}/logo.png`,
+})))
+
+useHead(computed(() => ({
+  link: [{ rel: 'canonical', href: contactUrl.value }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'RealEstateAgent',
+      name: 'Emera Developments',
+      url: siteUrl,
+      telephone: '+201003144282',
+      email: 'emera.developments@gmail.com',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '24 El Fateh St',
+        addressLocality: 'Tanta',
+        addressRegion: 'Al Gharbiyah',
+        addressCountry: 'EG',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 30.792874,
+        longitude: 30.990704,
+      },
+      openingHours: 'Su-Th 09:00-18:00',
+      sameAs: [
+        'https://www.instagram.com/emera_development/',
+        'https://www.facebook.com/profile.php?id=61571683641952',
+      ],
+    }),
+  }],
+})))
 </script>

@@ -209,13 +209,56 @@ onMounted(async () => {
 
 onUnmounted(killScrollTriggers)
 
+const { public: { siteUrl } } = useRuntimeConfig()
+const ogImage = `${siteUrl}/logo.png`
+const desc = 'Emera Developments builds premium residential and commercial properties across Egypt. Explore our portfolio of luxury projects in Tanta, Cairo and beyond.'
+
 useSeoMeta({
   title: 'Emera Developments — Premium Real Estate in Egypt',
-  description: 'Emera Developments builds premium residential and commercial properties across Egypt. Explore our portfolio of luxury projects in Tanta, Cairo and beyond.',
+  description: desc,
   ogTitle: 'Emera Developments — Premium Real Estate in Egypt',
   ogDescription: 'Luxury residential and commercial developments across Egypt. Quality, integrity, and innovation.',
-  ogImage: '/logo.png',
+  ogImage,
+  ogUrl: siteUrl,
   ogType: 'website',
-  twitterCard: 'summary',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Emera Developments — Premium Real Estate in Egypt',
+  twitterDescription: desc,
+  twitterImage: ogImage,
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: siteUrl }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Emera Developments',
+          url: siteUrl,
+          logo: ogImage,
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+201003144282',
+            email: 'emera.developments@gmail.com',
+            contactType: 'sales',
+            areaServed: 'EG',
+          },
+          sameAs: [
+            'https://www.instagram.com/emera_development/',
+            'https://www.facebook.com/profile.php?id=61571683641952',
+          ],
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Emera Developments',
+          url: siteUrl,
+        },
+      ]),
+    },
+  ],
 })
 </script>

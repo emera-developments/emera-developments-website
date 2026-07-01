@@ -17,14 +17,31 @@ export default defineEventHandler(async (event) => {
   const urls: string[] = []
 
   for (const page of staticPages) {
-    urls.push(urlEntry(`${base}${page.path}`, undefined, page.changefreq, page.priority))
-    urls.push(urlEntry(`${base}/ar${page.path === '/' ? '' : page.path}`, undefined, page.changefreq, page.priority))
+    const enUrl = `${base}${page.path}`
+    const arUrl = `${base}/ar${page.path === '/' ? '' : page.path}`
+    urls.push(urlEntry(enUrl, undefined, page.changefreq, page.priority, [
+      { hreflang: 'en', href: enUrl },
+      { hreflang: 'ar', href: arUrl },
+      { hreflang: 'x-default', href: enUrl },
+    ]))
+    urls.push(urlEntry(arUrl, undefined, page.changefreq, page.priority, [
+      { hreflang: 'en', href: enUrl },
+      { hreflang: 'ar', href: arUrl },
+      { hreflang: 'x-default', href: enUrl },
+    ]))
   }
 
   for (const project of projects ?? []) {
     const lastmod = project.updated_at ? new Date(project.updated_at).toISOString().split('T')[0] : undefined
-    urls.push(urlEntry(`${base}/projects/${project.id}`, lastmod, 'monthly', '0.8'))
-    urls.push(urlEntry(`${base}/ar/projects/${project.id}`, lastmod, 'monthly', '0.8'))
+    const enUrl = `${base}/projects/${project.id}`
+    const arUrl = `${base}/ar/projects/${project.id}`
+    const alternates = [
+      { hreflang: 'en', href: enUrl },
+      { hreflang: 'ar', href: arUrl },
+      { hreflang: 'x-default', href: enUrl },
+    ]
+    urls.push(urlEntry(enUrl, lastmod, 'monthly', '0.8', alternates))
+    urls.push(urlEntry(arUrl, lastmod, 'monthly', '0.8', alternates))
   }
 
   setHeader(event, 'content-type', 'application/xml; charset=utf-8')
@@ -36,10 +53,19 @@ ${urls.join('\n')}
 </urlset>`
 })
 
-function urlEntry(loc: string, lastmod?: string, changefreq?: string, priority?: string) {
+function urlEntry(
+  loc: string,
+  lastmod?: string,
+  changefreq?: string,
+  priority?: string,
+  alternates: { hreflang: string; href: string }[] = [],
+) {
+  const altTags = alternates
+    .map(a => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}"/>`)
+    .join('\n')
   return `  <url>
     <loc>${loc}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}
     <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <priority>${priority}</priority>${altTags ? `\n${altTags}` : ''}
   </url>`
 }

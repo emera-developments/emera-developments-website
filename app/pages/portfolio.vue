@@ -86,7 +86,24 @@ function countFor(filter: string) {
 
 onMounted(() => store.fetchProjects())
 
-useHead({ title: `${t('portfolio.title')} — Emera Developments` })
+const { public: { siteUrl } } = useRuntimeConfig()
+const portfolioUrl = computed(() => `${siteUrl}${isAr.value ? '/ar' : ''}/portfolio`)
+
+useSeoMeta(computed(() => ({
+  title: `${t('portfolio.title')} — Emera Developments`,
+  description: t('seo.portfolioDescription'),
+  ogTitle: `${t('portfolio.title')} — Emera Developments`,
+  ogDescription: t('seo.portfolioDescription'),
+  ogImage: `${siteUrl}/logo.png`,
+  ogUrl: portfolioUrl.value,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterTitle: `${t('portfolio.title')} — Emera Developments`,
+  twitterDescription: t('seo.portfolioDescription'),
+  twitterImage: `${siteUrl}/logo.png`,
+})))
+
+useHead(computed(() => ({ link: [{ rel: 'canonical', href: portfolioUrl.value }] })))
 </script>
 
 <style scoped>

@@ -43,6 +43,11 @@
     "filter_sold": "Sold",
     "filter_coming": "Coming Soon"
   },
+  "seo": {
+    "portfolioDescription": "Browse Emera Developments' portfolio of premium residential and commercial projects across Egypt.",
+    "aboutDescription": "Learn about Emera Developments — our story, values, and commitment to building exceptional properties in Egypt since 2021.",
+    "contactDescription": "Get in touch with Emera Developments. Visit us in Tanta, Egypt, or send us an inquiry about any of our projects."
+  },
   "project": {
     "status_available": "Available",
     "status_sold": "Sold",
